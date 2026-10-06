@@ -1,0 +1,629 @@
+$date
+	Mon Oct  5 22:38:13 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_top $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " SCREEN_HEIGHT $end
+$var parameter 32 # SCREEN_WIDTH $end
+$var parameter 32 $ SPEED $end
+$var reg 1 % clk $end
+$var reg 1 & data_in_valid $end
+$var reg 10 ' dir_x [9:0] $end
+$var reg 10 ( dir_y [9:0] $end
+$var reg 10 ) plane_x [9:0] $end
+$var reg 10 * plane_y [9:0] $end
+$var reg 10 + pos_x [9:0] $end
+$var reg 10 , pos_y [9:0] $end
+$var reg 1 - rst $end
+$scope module top_dut $end
+$var wire 1 % clk_i $end
+$var wire 1 & data_in_valid_i $end
+$var wire 10 . dir_x_i [9:0] $end
+$var wire 10 / dir_y_i [9:0] $end
+$var wire 10 0 plane_x_i [9:0] $end
+$var wire 10 1 plane_y_i [9:0] $end
+$var wire 10 2 pos_x_i [9:0] $end
+$var wire 10 3 pos_y_i [9:0] $end
+$var wire 1 - rst_n_i $end
+$var wire 31 4 wall_top [30:0] $end
+$var wire 31 5 wall_height [30:0] $end
+$var wire 31 6 wall_bottom [30:0] $end
+$var wire 14 7 ray_dir_y_dda [13:0] $end
+$var wire 14 8 ray_dir_y [13:0] $end
+$var wire 14 9 ray_dir_x_dda [13:0] $end
+$var wire 14 : ray_dir_x [13:0] $end
+$var wire 10 ; pos_y [9:0] $end
+$var wire 10 < pos_x [9:0] $end
+$var wire 10 = plane_y [9:0] $end
+$var wire 10 > plane_x [9:0] $end
+$var wire 1 ? hit_side $end
+$var wire 21 @ hit_distance [20:0] $end
+$var wire 10 A dir_y_dda [9:0] $end
+$var wire 10 B dir_y [9:0] $end
+$var wire 10 C dir_x_dda [9:0] $end
+$var wire 10 D dir_x [9:0] $end
+$var wire 1 E data_out_valid_dda $end
+$var wire 1 F data_out_valid $end
+$var parameter 32 G DATA_WIDTH $end
+$var parameter 32 H SCREEN_HEIGHT $end
+$var parameter 32 I SCREEN_WIDTH $end
+$var parameter 32 J SPEED $end
+$scope module dda_algo_dut $end
+$var wire 1 % clk_i $end
+$var wire 1 - rst_n_i $end
+$var wire 10 K step_y [9:0] $end
+$var wire 10 L step_x [9:0] $end
+$var wire 1 F start_i $end
+$var wire 14 M ray_dir_y_i [13:0] $end
+$var wire 14 N ray_dir_x_i [13:0] $end
+$var wire 10 O pos_y_i [9:0] $end
+$var wire 10 P pos_x_i [9:0] $end
+$var parameter 32 Q CALCULATE_DDA $end
+$var parameter 32 R CHECK_WALL $end
+$var parameter 32 S COMPARE $end
+$var parameter 32 T DATA_WIDTH $end
+$var parameter 32 U HIT $end
+$var parameter 32 V INIT $end
+$var parameter 32 W MAP_HEIGHT $end
+$var parameter 32 X MAP_WIDTH $end
+$var parameter 32 Y MOVE_X $end
+$var parameter 32 Z MOVE_Y $end
+$var parameter 32 [ SIDE_CALCULATE $end
+$var parameter 1 \ X_HIT $end
+$var parameter 1 ] Y_HIT $end
+$var reg 10 ^ abs_ray_x [9:0] $end
+$var reg 10 _ abs_ray_y [9:0] $end
+$var reg 1 E data_out_valid_o $end
+$var reg 21 ` delta_dis_x [20:0] $end
+$var reg 21 a delta_dis_y [20:0] $end
+$var reg 10 b dir_x_o [9:0] $end
+$var reg 10 c dir_y_o [9:0] $end
+$var reg 21 d hit_distance_o [20:0] $end
+$var reg 1 e hit_side $end
+$var reg 1 ? hit_side_o $end
+$var reg 10 f map_x [9:0] $end
+$var reg 10 g map_y [9:0] $end
+$var reg 10 h next_x_boundary [9:0] $end
+$var reg 10 i next_y_boundary [9:0] $end
+$var reg 14 j ray_dir_x_o [13:0] $end
+$var reg 14 k ray_dir_x_stage1 [13:0] $end
+$var reg 14 l ray_dir_x_stage2 [13:0] $end
+$var reg 14 m ray_dir_x_stage3 [13:0] $end
+$var reg 14 n ray_dir_x_stage4 [13:0] $end
+$var reg 14 o ray_dir_x_stage5 [13:0] $end
+$var reg 14 p ray_dir_x_stage6 [13:0] $end
+$var reg 14 q ray_dir_y_o [13:0] $end
+$var reg 14 r ray_dir_y_stage1 [13:0] $end
+$var reg 14 s ray_dir_y_stage2 [13:0] $end
+$var reg 14 t ray_dir_y_stage3 [13:0] $end
+$var reg 14 u ray_dir_y_stage4 [13:0] $end
+$var reg 14 v ray_dir_y_stage5 [13:0] $end
+$var reg 14 w ray_dir_y_stage6 [13:0] $end
+$var reg 21 x side_x [20:0] $end
+$var reg 21 y side_y [20:0] $end
+$var reg 4 z state [3:0] $end
+$upscope $end
+$scope module perpendicular_distance_dut $end
+$var wire 1 % clk_i $end
+$var wire 21 { hit_distance_i [20:0] $end
+$var wire 1 ? hit_side_i $end
+$var wire 14 | ray_dir_x_i [13:0] $end
+$var wire 14 } ray_dir_y_i [13:0] $end
+$var wire 1 - rst_n_i $end
+$var wire 31 ~ y_mul_temp [30:0] $end
+$var wire 31 !" x_mul_temp [30:0] $end
+$var wire 31 "" wall_top_o [30:0] $end
+$var wire 31 #" wall_height_o [30:0] $end
+$var wire 31 $" wall_bottom_o [30:0] $end
+$var wire 31 %" square_temp [30:0] $end
+$var wire 31 &" perp_result_temp [30:0] $end
+$var wire 31 '" perp_result [30:0] $end
+$var wire 10 (" dir_y_i [9:0] $end
+$var wire 10 )" dir_x_i [9:0] $end
+$var wire 31 *" abs_mul_y [30:0] $end
+$var wire 31 +" abs_mul_x [30:0] $end
+$var parameter 32 ," DATA_WIDTH $end
+$var parameter 32 -" SCREEN_HEIGHT $end
+$var parameter 32 ." SCREEN_WIDTH $end
+$upscope $end
+$scope module ray_generator_dut $end
+$var wire 1 % clk_i $end
+$var wire 1 & data_in_valid_i $end
+$var wire 10 /" dir_x_i [9:0] $end
+$var wire 10 0" dir_x_o [9:0] $end
+$var wire 10 1" dir_y_i [9:0] $end
+$var wire 10 2" dir_y_o [9:0] $end
+$var wire 10 3" plane_x_i [9:0] $end
+$var wire 10 4" plane_x_o [9:0] $end
+$var wire 10 5" plane_y_i [9:0] $end
+$var wire 10 6" plane_y_o [9:0] $end
+$var wire 10 7" pos_x_i [9:0] $end
+$var wire 10 8" pos_x_o [9:0] $end
+$var wire 10 9" pos_y_i [9:0] $end
+$var wire 10 :" pos_y_o [9:0] $end
+$var wire 1 - rst_n_i $end
+$var wire 10 ;" screen_x_i [9:0] $end
+$var wire 20 <" temp_y [19:0] $end
+$var wire 20 =" temp_x [19:0] $end
+$var wire 14 >" ray_dir_y_o [13:0] $end
+$var wire 14 ?" ray_dir_x_o [13:0] $end
+$var parameter 32 @" DATA_WIDTH $end
+$var parameter 32 A" SCREEN_WIDTH $end
+$var parameter 32 B" SPEED $end
+$var reg 10 C" camera_x [9:0] $end
+$var reg 1 F data_out_valid_o $end
+$var integer 32 D" i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 B"
+b101 A"
+b1010 @"
+b101 ."
+b101 -"
+b1010 ,"
+0]
+1\
+b10 [
+b101 Z
+b100 Y
+b111 X
+b111 W
+b0 V
+b111 U
+b1010 T
+b11 S
+b110 R
+b1 Q
+b1 J
+b101 I
+b101 H
+b1010 G
+b1 $
+b101 #
+b101 "
+b1010 !
+$end
+#0
+$dumpvars
+b0 D"
+bx C"
+bx ?"
+bx >"
+bx ="
+bx <"
+b11 ;"
+bx :"
+bx 9"
+bx 8"
+bx 7"
+bx 6"
+bx 5"
+bx 4"
+bx 3"
+bx 2"
+bx 1"
+bx 0"
+bx /"
+bx +"
+bx *"
+bx )"
+bx ("
+bx '"
+bx &"
+bx %"
+bx $"
+bx #"
+bx ""
+bx !"
+bx ~
+bx }
+bx |
+bx {
+b0 z
+bx y
+bx x
+bx w
+bx v
+bx u
+bx t
+bx s
+bx r
+bx q
+bx p
+bx o
+bx n
+bx m
+bx l
+bx k
+bx j
+b0 i
+b0 h
+b0 g
+b0 f
+xe
+bx d
+bx c
+bx b
+b0 a
+b0 `
+b0 _
+b0 ^
+bx P
+bx O
+bx N
+bx M
+bx1 L
+bx1 K
+xF
+0E
+bx D
+bx C
+bx B
+bx A
+bx @
+x?
+bx >
+bx =
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+bx 2
+bx 1
+bx 0
+bx /
+bx .
+0-
+bx ,
+bx +
+bx *
+bx )
+bx (
+bx '
+x&
+0%
+$end
+#5
+1%
+#10
+0%
+1&
+b1010000000 ;
+b1010000000 O
+b1010000000 :"
+b1010000000 ,
+b1010000000 3
+b1010000000 9"
+b1010000000 <
+b1010000000 P
+b1010000000 8"
+b1010000000 +
+b1010000000 2
+b1010000000 7"
+b10101001 =
+b10101001 6"
+b10101001 *
+b10101001 1
+b10101001 5"
+b0 >
+b0 4"
+b0 )
+b0 0
+b0 3"
+b10000000000000000 %"
+b0 B
+b0 ("
+b0 2"
+b0 (
+b0 /
+b0 1"
+b100000000 D
+b100000000 )"
+b100000000 0"
+b100000000 '
+b100000000 .
+b100000000 /"
+1-
+#15
+b1 L
+b1 K
+b100000000 :
+b100000000 N
+b100000000 ?"
+b1010100 8
+b1010100 M
+b1010100 >"
+1F
+b0 ="
+b101010010000000 <"
+b10000000 C"
+1%
+#20
+0%
+#25
+b1 z
+b1010100 r
+b100000000 k
+b1010100 _
+b100000000 ^
+b10 g
+b10 f
+1%
+#30
+0%
+#35
+b10 z
+b1010100 s
+b100000000 l
+b10000000 i
+b10000000 h
+b1100001100 a
+b100000000 `
+1%
+#40
+0%
+#45
+b11 z
+b1010100 t
+b100000000 m
+b110000110 y
+b10000000 x
+1%
+#50
+0%
+#55
+b1010100 u
+b100000000 n
+b100 z
+1%
+#60
+0%
+#65
+b1010100 v
+b100000000 o
+b110 z
+1e
+b110000000 x
+b11 f
+1%
+#70
+0%
+#75
+b11 z
+1%
+#80
+0%
+#85
+b100 z
+1%
+#90
+0%
+#95
+b110 z
+b1010000000 x
+b100 f
+1%
+#100
+0%
+#105
+b11 z
+1%
+#110
+0%
+#115
+b101 z
+1%
+#120
+0%
+#125
+b110 z
+0e
+b10010010010 y
+b11 g
+1%
+#130
+0%
+#135
+b11 z
+1%
+#140
+0%
+#145
+b100 z
+1%
+#150
+0%
+#155
+b110 z
+1e
+b1110000000 x
+b101 f
+1%
+#160
+0%
+#165
+b11 z
+1%
+#170
+0%
+#175
+b100 z
+1%
+#180
+0%
+#185
+b110 z
+b10010000000 x
+b110 f
+1%
+#190
+0%
+#195
+b1110000000 @
+b1110000000 d
+b1110000000 {
+b111 z
+b1010100 w
+b100000000 p
+1%
+#200
+0%
+#205
+b10 4
+b10 ""
+b11 6
+b11 $"
+b1 5
+b1 #"
+b1110000000 '"
+b11100000000000000000000000 &"
+b0 *"
+b10000000000000000 +"
+1E
+b0 ~
+b1010100 7
+b1010100 q
+b1010100 }
+b10000000000000000 !"
+b100000000 9
+b100000000 j
+b100000000 |
+1%
+#210
+0%
+#215
+1%
+#220
+0%
+#225
+1%
+#230
+0%
+#235
+1%
+#240
+0%
+#245
+1%
+#250
+0%
+#255
+1%
+#260
+0%
+#265
+1%
+#270
+0%
+#275
+1%
+#280
+0%
+#285
+1%
+#290
+0%
+#295
+1%
+#300
+0%
+#305
+1%
+#310
+0%
+#315
+1%
+#320
+0%
+#325
+1%
+#330
+0%
+#335
+1%
+#340
+0%
+#345
+1%
+#350
+0%
+#355
+1%
+#360
+0%
+#365
+1%
+#370
+0%
+#375
+1%
+#380
+0%
+#385
+1%
+#390
+0%
+#395
+1%
+#400
+0%
+#405
+1%
+#410
+0%
+#415
+1%
+#420
+0%
+#425
+1%
+#430
+0%
+#435
+1%
+#440
+0%
+#445
+1%
+#450
+0%
+#455
+1%
+#460
+0%
+#465
+1%
+#470
+0%
+#475
+1%
+#480
+0%
+#485
+1%
+#490
+0%
+#495
+1%
+#500
+0%
+#505
+1%
+#510
+0%
