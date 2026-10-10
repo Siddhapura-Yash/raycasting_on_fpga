@@ -1,3 +1,0 @@
-verilator --cc --exe --build --timing     --top-module starting_position     starting_position.sv     top.sv     ray_generator.sv     dda_algo.sv     sync_fifo.sv     sim_main.cpp     -CFLAGS "$(sdl2-config --cflags)"     -LDFLAGS "$(sdl2-config --libs)"     -Wno-fatal
-
-./obj_dir/Vstarting_position
