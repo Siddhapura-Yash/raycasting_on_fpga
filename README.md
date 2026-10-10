@@ -185,8 +185,4 @@ wall distance is used.
 
 ## closing note
 
-this project took time to understand, implement, connect, and
-debug not just to get an image on the screen, but to make the
-rendering logic work as rtl. i'm leaving it here as a completed learning
-milestone for now while i move on to other work. i may come back to it
-later and take it through an fpga implementation.
+this project took time to understand, and implement. my first priority was to get the raycasting logic working in rtl, so i couldn't spend as much time as i'd like on code structure and clean rtl styling. sorry about that. i'm wrapping up here for now due to other work, but i'd like to revisit it later to clean up the rtl and explore an fpga implementation.
