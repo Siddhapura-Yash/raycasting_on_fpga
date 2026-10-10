@@ -13,6 +13,8 @@ getting the renderer to work involved breaking the algorithm into hardware-frien
 
 i've got the raycasting rtl working in verilator and have also generated the hdmi pixel output with rgb values. however, getting it to work on an actual hdmi or vga display would require some additional changes and testing. i initially expected to complete this within a week by spending around 2 hours daily after office, but it looks like it'll take a bit longer than planned. with other work to focus on, i'm winding up the project here for now. i'd like to revisit it in the future and try taking it to actual fpga hardware.
 
+for a more detailed explanation of the raycasting algorithm, its implementation, and the steps involved in translating it into rtl, check out the [blog post](https://medium.com/@siddhapurayash09/how-i-built-a-raycaster-engine-70fafed4952e?sharedUserId=siddhapurayash09).
+
 ## how raycasting works
 
 raycasting creates a 3d-like first-person view from a 2d grid map. each
@@ -186,3 +188,4 @@ wall distance is used.
 ## closing note
 
 this project took time to understand, and implement. my first priority was to get the raycasting logic working in rtl, so i couldn't spend as much time as i'd like on code structure and clean rtl styling. sorry about that. i'm wrapping up here for now due to other work, but i'd like to revisit it later to clean up the rtl and explore an fpga implementation.
+
